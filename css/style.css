@@ -256,3 +256,34 @@ body {
   }
 }
 /* finaliza navegação por tabs, na lista de animais */
+
+/* inicia style para tornar a sessão FAQ dinâmica */
+.js .js-accordion dd {
+  display: none;
+}
+
+.js-accordion dt::after {
+  content: '⮧';
+  margin-left: 10px;
+}
+
+.js-accordion dt.ativo::after {
+  content: '⮥';
+}
+
+.js-accordion dd.ativo {
+  display: block;
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 100%;
+  }
+}
+/* finaliza style para tornar a sessão FAQ dinâmica */
