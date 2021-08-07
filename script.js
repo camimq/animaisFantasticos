@@ -45,3 +45,24 @@ function initAccordion(){
 }
 initAccordion();
 /* fim do script para accordion lista da FAQ */
+
+/* início do script para scroll suave */
+function initScrollSuave(){
+  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollToSection(event){
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    const section = document.querySelector(href);
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+
+  linksInternos.forEach((link) => {
+    link.addEventListener('click', scrollToSection);
+  })
+}
+initScrollSuave();
+/* fim do script para scroll suave */
