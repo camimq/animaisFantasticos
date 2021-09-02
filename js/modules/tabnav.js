@@ -1,5 +1,4 @@
-/* início do script para navegação por tabs na lista de animais */
-function initTabNav(){
+export default function initTabNav(){
 
   const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
   const tabContent = document.querySelectorAll('[data-tab="content"] section');
@@ -22,5 +21,3 @@ function initTabNav(){
   })
   }
 }
-initTabNav();
-/* fim do script para navegação por tabs na lista de animais */
