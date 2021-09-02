@@ -46,26 +46,3 @@ function initAccordion(){
 }
 initAccordion();
 /* fim do script para accordion lista da FAQ */
-
-/* início do script para animação de scroll */
-function initAnimacaoScroll(){
-  const sections = document.querySelectorAll('[data-anime="scroll"]');
-  if(sections.length){
-    const windwoMetade = window.innerHeight * 0.6;
-
-    function animaScroll(){
-      sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const isSectionVisible = (sectionTop - windwoMetade) < 0;
-      if(isSectionVisible){
-        section.classList.add('ativo');
-      }
-      })
-    }
-    animaScroll();
-
-    window.addEventListener('scroll', animaScroll);
-  }
-}
-initAnimacaoScroll();
-/* fim do script para animação de scroll */
