@@ -24,25 +24,3 @@ function initTabNav(){
 }
 initTabNav();
 /* fim do script para navegação por tabs na lista de animais */
-
-/* início do script para accordion lista da FAQ */
-function initAccordion(){
-  const accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
-  const activeClass = 'ativo';
-
-  if(accordionList.length){
-    accordionList[0].classList.add(activeClass);
-    accordionList[0].nextElementSibling.classList.add(activeClass);
-
-    function activeAccordion (){
-      this.classList.toggle(activeClass);
-      this.nextElementSibling.classList.toggle(activeClass);
-    }
-
-    accordionList.forEach((item) => {
-      item.addEventListener('click', activeAccordion);
-    });
-  }
-}
-initAccordion();
-/* fim do script para accordion lista da FAQ */
