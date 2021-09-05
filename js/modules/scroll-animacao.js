@@ -1,17 +1,17 @@
-export default function initAnimacaoScroll(){
+export default function initAnimacaoScroll() {
   const sections = document.querySelectorAll('[data-anime="scroll"]');
-  if(sections.length){
+  if (sections.length) {
     const windwoMetade = window.innerHeight * 0.6;
 
-    function animaScroll(){
+    function animaScroll() {
       sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const isSectionVisible = (sectionTop - windwoMetade) < 0;
-      if(isSectionVisible)
-        section.classList.add('ativo');
-      else
-        section.classList.remove('ativo');
-      })
+        const sectionTop = section.getBoundingClientRect().top;
+        const isSectionVisible = sectionTop - windwoMetade < 0;
+        if (isSectionVisible) section.classList.add('ativo');
+        else if (section.classList.contains('ativo')) {
+          section.classList.remove('ativo');
+        }
+      });
     }
     animaScroll();
 
