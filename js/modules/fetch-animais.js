@@ -1,28 +1,28 @@
 import initAnimaNumeros from './anima-numeros.js';
 
-export default function initFetchAnimais(){
-  async function fetchAnimais(url){
-    try{
+export default function initFetchAnimais() {
+  function createAnimal(animal) {
+    const div = document.createElement('div');
+    div.classList.add('numero-animal');
+    div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.total}</span>`;
+    return div;
+  }
+
+  async function fetchAnimais(url) {
+    try {
       const animaisResponse = await fetch(url);
       const animaiJSON = await animaisResponse.json();
       const numerosGrid = document.querySelector('.numeros-grid');
-    
-      animaiJSON.forEach(animal => {
+
+      animaiJSON.forEach((animal) => {
         const divAnimal = createAnimal(animal);
         numerosGrid.appendChild(divAnimal);
       });
       initAnimaNumeros();
-    }catch(erro) {
+    } catch (erro) {
       console.log(erro);
     }
   }
-  
-  function createAnimal(animal){
-    const div = document.createElement('div');
-    div.classList.add('numero-animal');
-    div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.total}</span>`;
-  
-    return div
-  }
-  fetchAnimais('./animaisapi.json')
+
+  fetchAnimais('./animaisapi.json');
 }
